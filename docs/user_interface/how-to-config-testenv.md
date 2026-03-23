@@ -23,10 +23,46 @@ testenv:
 
 ### The configuration of dataset
 
-| Property | Required | Description |
-|----------|----------|-------------|
+|Property|Required|Description|
+|---|---|---|
 |train_url|yes|The url address of train dataset index; Type: string|
 |test_url|yes|The url address of test dataset index; Type: string|
+
+#### Supported Data Formats
+
+The dataset files can be provided in several formats. The supported data formats are **TXT**, **CSV**, **JSON**, and **JSONL**. 
+
+Here is how the data files should be prepared depending on the format:
+
+##### 1. TXT Format
+For TXT format, each line typically represents a single data record or a path to a data file, optionally followed by its corresponding label separated by a space.
+```txt
+/path/to/image1.jpg dog
+/path/to/image2.jpg cat
+```
+
+##### 2. CSV Format
+For CSV format, the file should contain comma-separated values. It usually includes headers, where one column represents the data (or path to data) and another represents the label.
+```csv
+image_path,label
+/path/to/image1.jpg,dog
+/path/to/image2.jpg,cat
+```
+
+##### 3. JSON / JSONL Format
+For JSON format, it can be a JSON array of objects, or JSON Lines (JSONL) where each line is a valid JSON object.
+```json
+[
+  {"image": "/path/to/image1.jpg", "label": "dog"},
+  {"image": "/path/to/image2.jpg", "label": "cat"}
+]
+```
+
+Or JSONL:
+```json
+{"image": "/path/to/image1.jpg", "label": "dog"}
+{"image": "/path/to/image2.jpg", "label": "cat"}
+```
 
 For example:
 
