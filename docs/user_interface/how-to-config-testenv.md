@@ -13,10 +13,8 @@ For example:
 
 ```yaml
 testenv:
-  # dataset configuration
   dataset:
     ...
-  # metrics configuration for test case's evaluation; list type;
   metrics:
     ...
 ```
@@ -67,11 +65,8 @@ Or JSONL:
 For example:
 
 ```yaml
-# dataset configuration
 dataset:
-  # the url address of train dataset index; string type;
   train_index: "./dataset/mmlu-5-shot/train_data/data.json"
-  # the url address of test dataset index; string type;
   test_index: "./dataset/mmlu-5-shot/test_data/metadata.json"
 ```
 
@@ -101,18 +96,12 @@ You can select multiple metrics in `examples/cloud-edge-collaborative-inference-
 ```yaml
 # testenv.yaml
 testenv:
-  # dataset configuration
   dataset:
-    # the url address of train dataset index; string type;
     train_data: "./dataset/mmlu-5-shot/train_data/data.json"
-    # the url address of test dataset index; string type;
     test_data_info: "./dataset/mmlu-5-shot/test_data/metadata.json"
 
-  # metrics configuration for test case's evaluation; list type;
   metrics:
-      # metric name; string type;
     - name: "Accuracy"
-      # the url address of python file
       url: "./examples/cloud-edge-collaborative-inference-for-llm/testenv/accuracy.py"
 
     - name: "Edge Ratio"
